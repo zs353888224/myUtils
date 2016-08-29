@@ -7,9 +7,6 @@ apply plugin: 'idea'
 
 description = "This is my own Utils"
 
-sourceCompatibility = 1.5
-targetCompatibility = 1.5
-
 repositories {
     maven { url "http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-releases/" }
     maven { url "http://repo.terasoluna.org/nexus/content/repositories/terasoluna-gfw-snapshots/" }
@@ -31,7 +28,7 @@ repositories {
     maven { url "http://repo.maven.apache.org/maven2" }
 
 }
-def var = dependencies {
+def vars = dependencies {
     compile group: 'org.terasoluna.gfw', name: 'terasoluna-gfw-web-jsp', version: '5.1.0.RELEASE'
     compile group: 'org.terasoluna.gfw', name: 'terasoluna-gfw-jodatime', version: '5.1.0.RELEASE'
     compile group: 'org.terasoluna.gfw', name: 'terasoluna-gfw-security-web', version: '5.1.0.RELEASE'
