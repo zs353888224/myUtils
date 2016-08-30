@@ -18,4 +18,26 @@ public class DesUtillTest {
         String dec = DesUtil.strDec(str, key1, key2, key3);
         System.out.println(dec);
     }
+
+    @Test
+    public void testType(){
+        char str = 'a';
+        char str2 = '1';
+        String str3 = "1";
+        int temp = (int) str;
+        System.out.println(temp);
+        System.out.println((int)str2);
+        System.out.println(Integer.valueOf(str2));
+        System.out.println(Integer.valueOf(str3));
+
+        String ssss = "sss";
+        String vdcs = "";
+        System.out.println(ssss != "");
+    }
+
+    @Test
+    public void testString(){
+        String ss = null;
+        System.out.println(new String(ss));
+    }
 }

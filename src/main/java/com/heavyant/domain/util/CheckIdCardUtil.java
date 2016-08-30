@@ -8,6 +8,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ *
+ */
 public class CheckIdCardUtil extends StringUtils {
 
     /**
@@ -134,7 +137,7 @@ public class CheckIdCardUtil extends StringUtils {
      * @return 18位身份编码
      */
     public static String conver15CardTo18(String idCard) {
-        String idCard18 = "";
+        String idCard18;
         if (idCard.length() != CHINA_ID_MIN_LENGTH) {
             return null;
         }
@@ -155,16 +158,14 @@ public class CheckIdCardUtil extends StringUtils {
             idCard18 = idCard.substring(0, 6) + sYear + idCard.substring(8);
             // 转换字符数组  
             char[] cArr = idCard18.toCharArray();
-            if (cArr != null) {
-                int[] iCard = converCharToInt(cArr);
-                int iSum17 = getPowerSum(iCard);
-                // 获取校验位  
-                String sVal = getCheckCode18(iSum17);
-                if (sVal.length() > 0) {
-                    idCard18 += sVal;
-                } else {
-                    return null;
-                }
+            int[] iCard = converCharToInt(cArr);
+            int iSum17 = getPowerSum(iCard);
+            // 获取校验位
+            String sVal = getCheckCode18(iSum17);
+            if (sVal.length() > 0) {
+                idCard18 += sVal;
+            } else {
+                return null;
             }
         } else {
             return null;
@@ -210,15 +211,13 @@ public class CheckIdCardUtil extends StringUtils {
             String code18 = idCard.substring(17, CHINA_ID_MAX_LENGTH);
             if (isNum(code17)) {
                 char[] cArr = code17.toCharArray();
-                if (cArr != null) {
-                    int[] iCard = converCharToInt(cArr);
-                    int iSum17 = getPowerSum(iCard);
-                    // 获取校验位  
-                    String val = getCheckCode18(iSum17);
-                    if (val.length() > 0) {
-                        if (val.equalsIgnoreCase(code18)) {
-                            bTrue = true;
-                        }
+                int[] iCard = converCharToInt(cArr);
+                int iSum17 = getPowerSum(iCard);
+                // 获取校验位
+                String val = getCheckCode18(iSum17);
+                if (val.length() > 0) {
+                    if (val.equalsIgnoreCase(code18)) {
+                        bTrue = true;
                     }
                 }
             }
@@ -346,15 +345,12 @@ public class CheckIdCardUtil extends StringUtils {
         String card = idCard.replaceAll("[\\(|\\)]", "");
         Integer sum = 0;
         if (card.length() == 9) {
-            sum = (Integer.valueOf(card.substring(0, 1).toUpperCase()
-                    .toCharArray()[0]) - 55)
-                    * 9
-                    + (Integer.valueOf(card.substring(1, 2).toUpperCase()
-                    .toCharArray()[0]) - 55) * 8;
+            sum = ((int) card.substring(0, 1).toUpperCase().toCharArray()[0] - 55) * 9
+                    + ((int) card.substring(1, 2).toUpperCase().toCharArray()[0] - 55) * 8;
             card = card.substring(1, 9);
         } else {
-            sum = 522 + (Integer.valueOf(card.substring(0, 1).toUpperCase()
-                    .toCharArray()[0]) - 55) * 8;
+            sum = 522 + ((int) card.substring(0, 1).toUpperCase()
+                    .toCharArray()[0] - 55) * 8;
         }
         String mid = card.substring(1, 7);
         String end = card.substring(7, 8);
