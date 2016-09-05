@@ -1,4 +1,4 @@
-package com.heavyant.domain.util;
+package com.heavyant.domain.common.util;
 
 
 import org.slf4j.Logger;

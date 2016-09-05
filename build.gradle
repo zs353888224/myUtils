@@ -4,6 +4,7 @@ version '1.0-SNAPSHOT'
 apply plugin: 'java'
 apply plugin: 'maven'
 apply plugin: 'idea'
+apply plugin: 'war'
 
 description = "This is my own Utils"
 
@@ -26,9 +27,8 @@ repositories {
     maven { url "file:///Users/divestar/workspace/NTT/monoqn_server/monoqn_server/monoqn/repo" }
     maven { url "http://repo1.maven.org/maven2/" }
     maven { url "http://repo.maven.apache.org/maven2" }
-
 }
-def vars = dependencies {
+dependencies {
     compile group: 'org.terasoluna.gfw', name: 'terasoluna-gfw-web-jsp', version: '5.1.0.RELEASE'
     compile group: 'org.terasoluna.gfw', name: 'terasoluna-gfw-jodatime', version: '5.1.0.RELEASE'
     compile group: 'org.terasoluna.gfw', name: 'terasoluna-gfw-security-web', version: '5.1.0.RELEASE'
@@ -89,7 +89,7 @@ gretty {
     reloadOnClassChange = true
     reloadOnConfigChange = true
     reloadOnLibChange = true
-    contextPath = '/'
+    contextPath = '/wscq'
     jvmArgs = ['-Xmx1024M', '-XX:PermSize=128M', '-XX:MaxPermSize=256M']
     servletContainer = 'tomcat8'
     inplaceMode = 'hard'

@@ -1,4 +1,4 @@
-package com.heavyant.domain.util;
+package com.heavyant.domain.common.blacklist;
 
 
 import java.io.UnsupportedEncodingException;

@@ -1,4 +1,4 @@
-package com.heavyant.domain.util;
+package com.heavyant.domain.common.util;
 
 import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 
